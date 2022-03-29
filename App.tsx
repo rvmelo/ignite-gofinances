@@ -13,7 +13,7 @@ import {ThemeProvider} from 'styled-components';
 
 import theme from './src/global/styles/theme';
 
-import { Dashboard } from './src/screens/dashboard';
+import { Register } from './src/screens/register';
 
 
 
@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Dashboard  />
+        <Register  />
     </ThemeProvider>
   );
 }

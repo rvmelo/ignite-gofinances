@@ -5,6 +5,6 @@ import { Container } from './styles';
 
 type Props = TextInputProps;
 
-export const Input: React.FC = ({...rest}: Props) => {
+export const Input: React.FC<Props> = ({...rest}) => {
   return <Container {...rest} />;
 }

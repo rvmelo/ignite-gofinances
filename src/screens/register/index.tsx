@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CategorySelect } from '../../components/categorySelect';
 import { Button } from '../../components/form/button';
 import {Input} from '../../components/form/input';
 import { TransactionTypeButton } from '../../components/form/transactionTypeButton';
@@ -43,6 +44,7 @@ export function Register() {
                             isActive={transactionType === 'down'}
                         />
                     </TransactionsTypes>
+                    <CategorySelect title='Categoria'/>
                 </Fields>
                 <Button title="Enviar"/>
             </Form>

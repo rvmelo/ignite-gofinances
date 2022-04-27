@@ -18,8 +18,7 @@ import { InputForm } from '../../components/form/inputForm';
 import { useForm } from 'react-hook-form';
 
 interface FormData {
-    name: string;
-    amount: string;
+    [key: string]: string;
 }
 
 export function Register() {

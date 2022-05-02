@@ -13,7 +13,8 @@ import {ThemeProvider} from 'styled-components';
 
 import theme from './src/global/styles/theme';
 
-import { Register } from './src/screens/register';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppRoutes } from './src/routes/app.routes';
 
 
 
@@ -27,7 +28,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Register  />
+      {/* navigation container should have access to app theme */}
+      <NavigationContainer>
+        <AppRoutes  />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {Alert, Keyboard, Modal, TouchableWithoutFeedback} from 'react-native';
 import { CategorySelectButton } from '../../components/form/categorySelectButton';
 import { Button } from '../../components/form/button';
-import {Input} from '../../components/form/input';
 import { TransactionTypeButton } from '../../components/form/transactionTypeButton';
 import { CategorySelect } from '../categorySelect';
 

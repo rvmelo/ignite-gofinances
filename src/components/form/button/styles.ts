@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-import { RectButton } from 'react-native-gesture-handler';
+import {  TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export const Container = styled(RectButton)`
+export const Container = styled(TouchableWithoutFeedback)`
     width: 100%;
     background-color: ${({theme}) => theme.colors.secondary};
 

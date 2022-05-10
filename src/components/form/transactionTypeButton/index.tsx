@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableWithoutFeedbackProps } from 'react-native';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 import { 
     Button,
@@ -13,7 +13,7 @@ const icons = {
     down: 'arrow-down-circle'
 }
 
-interface Props extends TouchableWithoutFeedbackProps {
+interface Props extends RectButtonProps {
     title: string;
     type: 'up' | 'down';
     isActive: boolean;

@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components/native';
 import {Feather} from '@expo/vector-icons'
 import { RFValue } from 'react-native-responsive-fontsize';
 
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { RectButton, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 interface IconProps {
     type: 'up' | 'down';
@@ -33,7 +33,7 @@ export const Container = styled.View<ContainerProps>`
 
 `;
 
-export const Button = styled(TouchableWithoutFeedback)`
+export const Button = styled(RectButton)`
   flex-direction: row;
   align-items: center;
   justify-content: center;

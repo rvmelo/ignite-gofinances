@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {Alert, Keyboard, Modal, TouchableWithoutFeedback} from 'react-native';
+import {Alert, Keyboard, Modal} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler'
 import { CategorySelectButton } from '../../components/form/categorySelectButton';
 import { Button } from '../../components/form/button';
 import { TransactionTypeButton } from '../../components/form/transactionTypeButton';
@@ -119,7 +120,7 @@ export function Register() {
     } 
 
     return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback style={{ flex: 1 }} containerStyle={{flex: 1}} onPress={Keyboard.dismiss}>
             <Container>
                 <Header>
                     <Title>Cadastro</Title>

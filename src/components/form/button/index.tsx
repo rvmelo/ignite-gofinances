@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableWithoutFeedbackProps } from 'react-native';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 import { Container, Title } from './styles';
 
-interface Props extends TouchableWithoutFeedbackProps {
+interface Props extends RectButtonProps {
     title: string;
     onPress: () => void;
 }

@@ -46,9 +46,6 @@ export function Register() {
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
-    const dataKey = '@gofinances:transactions';
-
-
     const {control, handleSubmit, formState: {errors}, reset} = useForm({
         resolver: yupResolver(schema)
     });
@@ -93,6 +90,9 @@ export function Register() {
 
 
         try {
+
+            const dataKey = '@gofinances:transactions';
+
             const data = await AsyncStorage.getItem(dataKey);
             const currentData = data ? JSON.parse(data) : [];
 

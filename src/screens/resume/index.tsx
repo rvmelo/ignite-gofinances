@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { HistoryCard } from '../../components/historyCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { ChartContainer, Container, Content, Header, Month, MonthSelect, MonthSelectButton, MonthSelectIcon, Title } from './styles';
+import { ChartContainer, Container, Content, Header, LoadContainer, Month, MonthSelect, MonthSelectButton, MonthSelectIcon, Title } from './styles';
 
 import {categories} from '../../utils/categories';
 import { VictoryPie } from 'victory-native';
@@ -13,6 +13,8 @@ import { addMonths } from 'date-fns/esm';
 import { subMonths } from 'date-fns/esm';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { ActivityIndicator } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 interface TransactionData {
   type: 'positive' | 'negative';
@@ -33,6 +35,7 @@ interface CategoryData {
 
 export function Resume() {
 
+  const [isLoading, setIsLoading] = useState(false); 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
 
@@ -54,6 +57,7 @@ export function Resume() {
 
 
   async function loadData() {
+    setIsLoading(true);
     const dataKey = '@gofinances:transactions';
     const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];
@@ -105,19 +109,26 @@ export function Resume() {
     });
 
     setTotalByCategories(totalByCategory);
+    setIsLoading(false);
 
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     loadData();
-  }, [selectedDate])
+   }, [selectedDate]));
 
   return (
     <Container>
+
         <Header>
         <Title>Resumo por Categoria</Title>
         </Header>
 
+      {isLoading ? 
+        <LoadContainer>
+          <ActivityIndicator size='large' color={theme.colors.primary} /> 
+        </LoadContainer> :
+        
         <Content 
           showsVerticalScrollIndicator={true}
           contentContainerStyle={{
@@ -170,8 +181,7 @@ export function Resume() {
             ))
           }
         </Content>
-
-      
+      }
     </Container>
   )
 }

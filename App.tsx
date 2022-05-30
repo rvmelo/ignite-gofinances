@@ -21,6 +21,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AppRoutes } from './src/routes/app.routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
+import { SignIn } from './src/screens/signIn';
 
 
 
@@ -38,7 +39,7 @@ export default function App() {
       {/* navigation container should have access to app theme */}
       <NavigationContainer>
         <StatusBar  barStyle="light-content" />
-        <AppRoutes  />
+        <SignIn  />
       </NavigationContainer>
     </ThemeProvider>
     </GestureHandlerRootView>

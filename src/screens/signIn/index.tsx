@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import GoogleSvg from '../../assets/google.svg';
 import AppleSvg from '../../assets/apple.svg';
@@ -7,8 +7,12 @@ import LogoSvg from '../../assets/logo.svg';
 import { Container, Footer, FooterWrapper, Header, SignInTitle, Title, TitleWrapper } from './styles';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SignInSocialButton } from '../../components/SignInSocialButton';
+import { AuthContext } from '../../authContext';
 
 export const SignIn: React.FC = () => {
+
+  const data = useContext(AuthContext);
+
   return ( 
     <Container>
         <Header>

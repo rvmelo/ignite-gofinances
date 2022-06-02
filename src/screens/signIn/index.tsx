@@ -7,11 +7,12 @@ import LogoSvg from '../../assets/logo.svg';
 import { Container, Footer, FooterWrapper, Header, SignInTitle, Title, TitleWrapper } from './styles';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SignInSocialButton } from '../../components/SignInSocialButton';
-import { AuthContext } from '../../authContext';
+import { useAuth } from '../../hooks/auth';
 
 export const SignIn: React.FC = () => {
 
-  const data = useContext(AuthContext);
+  const { user } = useAuth();
+  console.log(user);
 
   return ( 
     <Container>

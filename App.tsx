@@ -22,7 +22,7 @@ import { AppRoutes } from './src/routes/app.routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
 import { SignIn } from './src/screens/signIn';
-import { AuthContext } from './src/authContext';
+import { AuthProvider } from './src/hooks/auth';
 
 
 
@@ -40,9 +40,9 @@ export default function App() {
       {/* navigation container should have access to app theme */}
       <NavigationContainer>
         <StatusBar  barStyle="light-content" />
-        <AuthContext.Provider value={[]}>
+        <AuthProvider>
           <SignIn  />
-        </AuthContext.Provider>
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
     </GestureHandlerRootView>

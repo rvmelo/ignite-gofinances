@@ -2,6 +2,8 @@ import React, { createContext, ReactNode, useContext, useState } from "react";
 
 import * as AuthSession from 'expo-auth-session';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const {CLIENT_ID} = process.env;
 const {REDIRECT_URI} = process.env;
 
@@ -49,12 +51,15 @@ function AuthProvider({children}: AuthProviderProps) {
             const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`);
             const userInfo = await response.json();
 
-            setUser({
+            const userLogged = {
                 id: userInfo?.id,
                 email: userInfo?.email,
                 name: userInfo.given_name,
                 photo: userInfo?.picture
-            })
+            };
+
+            setUser(userLogged);
+            await AsyncStorage.setItem('@gofinances:user', JSON.stringify(userLogged));
         }
 
        } catch (err) {

@@ -17,12 +17,10 @@ import {ThemeProvider} from 'styled-components';
 
 import theme from './src/global/styles/theme';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { AppRoutes } from './src/routes/app.routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
-import { SignIn } from './src/screens/signIn';
 import { AuthProvider } from './src/hooks/auth';
+import { Routes } from './src/routes';
 
 
 
@@ -38,12 +36,10 @@ export default function App() {
     <GestureHandlerRootView style={{flex: 1}}>
     <ThemeProvider theme={theme}>
       {/* navigation container should have access to app theme */}
-      <NavigationContainer>
         <StatusBar  barStyle="light-content" />
         <AuthProvider>
-          <SignIn  />
+          <Routes />
         </AuthProvider>
-      </NavigationContainer>
     </ThemeProvider>
     </GestureHandlerRootView>
   );
